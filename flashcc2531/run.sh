@@ -11,10 +11,6 @@ if ! wget https://github.com/Koenkk/Z-Stack-firmware/raw/master/coordinator/Z-St
 echo "unziping"
 if ! unzip CC2531_DEFAULT_20201127.zip; then echo "unzip failed" && exit 1; fi
 
-echo "backup firmware"
-./cc_read save.hex
-if ! cp save.hex /backup/save_$(date +%s).hex; then echo "could not backup firmware" && exit 1; fi
-
 echo "erase"
 ./cc_erase
 
